@@ -1,0 +1,39 @@
+@font-face{
+    src: url('../font/ZCOOLKuaiLe-Regular.ttf');
+    font-family: 'ZCOOLKuaiLe-Regular';
+}
+body {
+    padding-top: 150px;
+    font-family: 'ZCOOLKuaiLe-Regular' !important;
+}
+h1 {
+    color: green;
+}
+
+.letter{
+    font-size: 3em;
+    width: 50px;
+    height: 50px;
+    margin: 40px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+input {
+    color: green;
+    padding: 5px 0px;
+
+}
+button {
+    background: green;
+    border-radius: 5px;
+    border: none;
+    padding: 1% 2%;
+    color: white;
+}
+
+.message {
+    margin-top: 50px;
+
+}

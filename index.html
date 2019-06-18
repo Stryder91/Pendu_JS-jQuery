@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pendu</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="jquery.js"></script>
+
+</head>
+<body>
+    <section class="container text-center">
+        <h1>Le pendu pentu</h1>
+        <div class="hideWord row d-flex justify-content-center">
+            <div class="letter">_</div>
+            <div class="letter">_</div>
+            <div class="letter">_</div>
+            <div class="letter">_</div>
+            <div class="letter">_</div>
+            <div class="letter">_</div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <input type="text" placeholder="Entrez une lettre">
+            <button type="submit">Essayer!</button>
+            <div class=" col-12 message"></div>
+            <div class="col-12 life">Tu as : <span id="live"></span> vies.</div>
+        </div>
+
+    </section>
+    <script>
+        let word = new Array()
+        let array = document.getElementsByClassName('letter');
+
+        word = ["w","o","m","b","a","t"]
+
+        let value;   
+        let founded = 0;
+
+        life = 5;
+        $('#live').html(life)
+        
+
+        $('button').click(()=>{
+
+            value = $('input').val()
+            $('input').val('')
+
+
+            if (value.length !== 1){
+                $('.message').html('Il faut taper un seul chiffre');
+            }   else {
+
+
+                let index = word.indexOf(value)
+
+                if (word.indexOf(value) !== -1){
+
+                    delete word[index]
+                    founded++
+                    
+                    array[index].innerHTML = value;
+                    
+                    if (founded === word.length){
+                        $('.message').html('Bien joué!')
+                    }
+
+                } else {
+                    $('.message').html('Bien tenté mais ce n\'est pas ça!')
+                    life -= 1;
+                    $('#live').html(life)
+                    
+
+                    if (life === 0){
+                        $('.message').html('Perdu, plus de vies.');
+
+                    $('input').prop('disabled', true);
+                    }
+                }
+            } 
+        });
+
+    </script>
+</body>
+</html>
